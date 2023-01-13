@@ -8,10 +8,6 @@ public class ObservableImpl implements Observable {
     private final List<Observer> observers = new ArrayList<>();
     private int state = 10;
 
-    public int getState() {
-        return state;
-    }
-
     public void setState(int state) {
         this.state = state;
         this.notifyObservers();
@@ -29,6 +25,6 @@ public class ObservableImpl implements Observable {
 
     @Override
     public void notifyObservers() {
-        this.observers.forEach(o -> o.update(this));
+        this.observers.forEach(o -> o.update(this.state));
     }
 }
